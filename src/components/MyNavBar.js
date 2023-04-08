@@ -32,7 +32,8 @@ export default function MyNavBar() {
         <MenuItems language="German" disabled={language == "German"} />
         <MenuItems language="Spanish" disabled={language == "Spanish"} />
         <MenuItems language="Japanese" disabled={language == "Japanese"} />
-        <MenuItems language="Korean" disabled={language == "Korean"} />
+        {/*Korean Disabled for now due to BD data being incorrect*/}
+        <MenuItems language="Korean" disabled={true} />
         <MenuItems language="Traditional Chinese" disabled={language == "Traditional Chinese"} />
         <MenuItems language="Simplified Chinese" disabled={language == "Simplified Chinese"} />
       </Container>
