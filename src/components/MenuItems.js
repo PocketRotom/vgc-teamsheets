@@ -10,5 +10,5 @@ export default function MenuItems(props) {
     props.onClose(false);
   }
 
-  return (<Nav.Link style={{ color: "white" }} href="#" onClick={() => !props.disabled ? changeLanguageOnClick() : ""} disabled={props.disabled}>{props.language}</Nav.Link>);
+  return (<Nav.Link style={{ color: `${props.language == "Korean" ? "grey" : "white"}` }} href="#" onClick={() => !props.disabled ? changeLanguageOnClick() : ""} disabled={props.disabled}>{props.language}</Nav.Link>);
 }
