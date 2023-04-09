@@ -8,13 +8,10 @@ import MenuItems from './MenuItems';
 export default function MyNavBar() {
   const { language } = useApp();
 
-  function teste(e) {
-    console.log(e);
-    e.preventDefault();
-  }
+  const [expanded, setExpanded] = React.useState(false);
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" expand="lg" expanded={expanded}>
       <Container>
         <Navbar.Brand href="#home">
           <img
@@ -26,16 +23,19 @@ export default function MyNavBar() {
           />
           VGC Teamsheets Generator
         </Navbar.Brand>
-        <MenuItems language="English" disabled={language == "English"} />
-        <MenuItems language="French" disabled={language == "French"} />
-        <MenuItems language="Italian" disabled={language == "Italian"} />
-        <MenuItems language="German" disabled={language == "German"} />
-        <MenuItems language="Spanish" disabled={language == "Spanish"} />
-        <MenuItems language="Japanese" disabled={language == "Japanese"} />
-        {/*Korean Disabled for now due to BD data being incorrect*/}
-        <MenuItems language="Korean" disabled={true} />
-        <MenuItems language="Traditional Chinese" disabled={language == "Traditional Chinese"} />
-        <MenuItems language="Simplified Chinese" disabled={language == "Simplified Chinese"} />
+        <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setExpanded(true)} />
+        <Navbar.Collapse id="navbarScroll">
+          <MenuItems language="English" disabled={language == "English"} onClose={setExpanded} />
+          <MenuItems language="French" disabled={language == "French"} onClose={setExpanded} />
+          <MenuItems language="Italian" disabled={language == "Italian"} onClose={setExpanded} />
+          <MenuItems language="German" disabled={language == "German"} onClose={setExpanded} />
+          <MenuItems language="Spanish" disabled={language == "Spanish"} onClose={setExpanded} />
+          <MenuItems language="Japanese" disabled={language == "Japanese"} onClose={setExpanded} />
+          {/*Korean Disabled for now due to BD data being incorrect*/}
+          <MenuItems language="Korean" disabled={true} onClose={setExpanded} />
+          <MenuItems language="Traditional Chinese" disabled={language == "Traditional Chinese"} onClose={setExpanded} />
+          <MenuItems language="Simplified Chinese" disabled={language == "Simplified Chinese"} onClose={setExpanded} />
+        </Navbar.Collapse>
       </Container>
     </Navbar>);
 }

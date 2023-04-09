@@ -6,7 +6,8 @@ export default function MenuItems(props) {
   const { setLanguage } = useApp();
 
   function changeLanguageOnClick() {
-    setLanguage(props.language)
+    setLanguage(props.language);
+    props.onClose(false);
   }
 
   return (<Nav.Link style={{ color: "white" }} href="#" onClick={() => !props.disabled ? changeLanguageOnClick() : ""} disabled={props.disabled}>{props.language}</Nav.Link>);

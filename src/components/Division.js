@@ -1,6 +1,6 @@
-export default function Division() {
+export default function Division(props) {
   return (
-    <hr
+    <hr className={props.className}
       style={{
         background: 'black',
         color: 'black',

@@ -6,30 +6,30 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import PokemonForm from './components/PokemonForm';
 import Division from './components/Division';
-import { useApp } from './contexts/AppContext';
 
 function App() {
 
-
-  const { pokemon, types, abilities, items, moves } = useApp();
   return (
     <>
       <MyNavBar />
       <HeaderForm />
       <Container>
         <Division />
-        <Row>
+        <Row xs={1} md={2}>
           <PokemonForm />
-          <PokemonForm />
-        </Row>
-        <Division />
-        <Row>
-          <PokemonForm />
+          <Division className="d-block d-md-none" />
           <PokemonForm />
         </Row>
         <Division />
-        <Row>
+        <Row xs={1} md={2}>
           <PokemonForm />
+          <Division className="d-block d-md-none" />
+          <PokemonForm />
+        </Row>
+        <Division />
+        <Row xs={1} md={2}>
+          <PokemonForm />
+          <Division className="d-block d-md-none" />
           <PokemonForm />
         </Row>
       </Container>

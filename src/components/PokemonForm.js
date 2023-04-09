@@ -5,9 +5,10 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import PokemonFormComponent from './PokemonFormComponent';
 import { useApp } from '../contexts/AppContext';
+import translations from '../translations';
 
 export default function PokemonForm(props) {
-  const { pokemon: pokemonList, types: typesList, abilities: abilitiesList, items: itemsList, moves: movesList } = useApp();
+  const { pokemon: pokemonList, types: typesList, abilities: abilitiesList, items: itemsList, moves: movesList, language } = useApp();
   const [level, setLevel] = React.useState("");
   const [hp, setHP] = React.useState("");
   const [atk, setAtk] = React.useState("");
@@ -47,12 +48,12 @@ export default function PokemonForm(props) {
 
   return (
     <Col>
-      <PokemonFormComponent pokemonList={pokemonList} label="Pokémon" type="PokemonName" />
+      <PokemonFormComponent pokemonList={pokemonList} label={translations.pokemon[language]} type="PokemonName" />
       <Row>
-        <Col sm={10}>
-          <PokemonFormComponent pokemonList={typesList} label="Tera Type" type="TeraType" />
+        <Col sm={9}>
+          <PokemonFormComponent pokemonList={typesList} label={translations.teraType[language]} type="TeraType" />
         </Col>
-        <Col sm={2}>
+        <Col sm={3}>
           <Form.Group className="mb-3" controlId="Level">
             <FloatingLabel
               controlId="floatingInput"
@@ -64,10 +65,10 @@ export default function PokemonForm(props) {
         </Col>
       </Row>
       <Row>
-        <Col sm={10}>
-          <PokemonFormComponent pokemonList={abilitiesList} label="Ability" type="Ability" />
+        <Col sm={9}>
+          <PokemonFormComponent pokemonList={abilitiesList} label={translations.ability[language]} type="Ability" />
         </Col>
-        <Col sm={2}>
+        <Col sm={3}>
           <Form.Group className="mb-3" controlId="HP">
             <FloatingLabel
               controlId="floatingInput"
@@ -79,10 +80,10 @@ export default function PokemonForm(props) {
         </Col>
       </Row>
       <Row>
-        <Col sm={10}>
-          <PokemonFormComponent pokemonList={itemsList} label="Item" type="Item" />
+        <Col sm={9}>
+          <PokemonFormComponent pokemonList={itemsList} label={translations.item[language]} type="Item" />
         </Col>
-        <Col sm={2}>
+        <Col sm={3}>
           <Form.Group className="mb-3" controlId="atk">
             <FloatingLabel
               controlId="floatingInput"
@@ -94,10 +95,10 @@ export default function PokemonForm(props) {
         </Col>
       </Row>
       <Row>
-        <Col sm={10}>
-          <PokemonFormComponent pokemonList={movesList} label="Move 1" type="move1" />
+        <Col sm={9}>
+          <PokemonFormComponent pokemonList={movesList} label={translations.move[language] + " 1"} type="move1" />
         </Col>
-        <Col sm={2}>
+        <Col sm={3}>
           <Form.Group className="mb-3" controlId="def">
             <FloatingLabel
               controlId="floatingInput"
@@ -109,10 +110,10 @@ export default function PokemonForm(props) {
         </Col>
       </Row>
       <Row>
-        <Col sm={10}>
-          <PokemonFormComponent pokemonList={movesList} label="Move 2" type="move2" />
+        <Col sm={9}>
+          <PokemonFormComponent pokemonList={movesList} label={translations.move[language] + " 2"} type="move2" />
         </Col>
-        <Col sm={2}>
+        <Col sm={3}>
           <Form.Group className="mb-3" controlId="spa">
             <FloatingLabel
               controlId="floatingInput"
@@ -124,10 +125,10 @@ export default function PokemonForm(props) {
         </Col>
       </Row>
       <Row>
-        <Col sm={10}>
-          <PokemonFormComponent pokemonList={movesList} label="Move 3" type="move3" />
+        <Col sm={9}>
+          <PokemonFormComponent pokemonList={movesList} label={translations.move[language] + " 3"} type="move3" />
         </Col>
-        <Col sm={2}>
+        <Col sm={3}>
           <Form.Group className="mb-3" controlId="spd">
             <FloatingLabel
               controlId="floatingInput"
@@ -139,10 +140,10 @@ export default function PokemonForm(props) {
         </Col>
       </Row>
       <Row>
-        <Col sm={10}>
-          <PokemonFormComponent pokemonList={movesList} label="Move 4" type="move4" />
+        <Col sm={9}>
+          <PokemonFormComponent pokemonList={movesList} label={translations.move[language] + " 4"} type="move4" />
         </Col>
-        <Col sm={2}>
+        <Col sm={3}>
           <Form.Group className="mb-3" controlId="spe">
             <FloatingLabel
               controlId="floatingInput"
