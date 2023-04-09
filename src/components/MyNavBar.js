@@ -23,8 +23,8 @@ export default function MyNavBar() {
           />
           VGC Teamsheets Generator
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setExpanded(true)} />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setExpanded(!expanded)} />
+        <Navbar.Collapse id="navbarScroll" className="justify-content-evenly">
           <MenuItems language="English" disabled={language == "English"} onClose={setExpanded} />
           <MenuItems language="French" disabled={language == "French"} onClose={setExpanded} />
           <MenuItems language="Italian" disabled={language == "Italian"} onClose={setExpanded} />
